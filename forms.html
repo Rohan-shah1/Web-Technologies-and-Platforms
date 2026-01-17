@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Back to Home</a>
+    </nav>
+
+    <h1>Student Admission Form</h1>
+
+    <form action="#" method="get">
+
+        <!-- Personal Info Fieldset -->
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required><br><br>
+
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required><br><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="98XXXXXXXX"><br><br>
+
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br><br>
+
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label><br><br>
+
+        </fieldset>
+
+        <br>
+
+        <!-- Academic Details Fieldset -->
+        <fieldset>
+            <legend>Academic Interest & details</legend>
+
+            <label for="course">Interested Course:</label><br>
+            <select id="course" name="course">
+                <optgroup label="Undergraduate">
+                    <option value="bsc_csit">BSc. CSIT</option>
+                    <option value="bca">BCA</option>
+                    <option value="bit">BIT</option>
+                </optgroup>
+                <optgroup label="Postgraduate">
+                    <option value="mca">MCA</option>
+                    <option value="mit">MIT</option>
+                </optgroup>
+            </select><br><br>
+
+            <label for="documents">Upload Transcripts:</label><br>
+            <input type="file" id="documents" name="documents"><br><br>
+
+            <label for="bio">Statement of Purpose:</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="50"
+                placeholder="Why do you want to join this course?"></textarea><br><br>
+
+        </fieldset>
+
+        <br>
+
+        <!-- Terms and Submit -->
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the terms and conditions</label><br><br>
+
+        <button type="submit">Submit Application</button>
+        <button type="reset">Reset Form</button>
+    </form>
+</body>
+
+</html>

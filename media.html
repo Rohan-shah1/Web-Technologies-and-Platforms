@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Back to Home</a>
+    </nav>
+
+    <h1>Media Elements Gallery</h1>
+    <p>Demonstrating usage of Image, Audio, Video, and Iframe tags.</p>
+
+    <hr>
+
+    <section>
+        <h2>1. Image</h2>
+        <figure>
+            <img src="Assets/image/sample.png" alt="Placeholder for Photo">
+            <figcaption>Sample Image</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2>2. Audio</h2>
+        <p>Listen to a sample track:</p>
+        <audio controls>
+            <source src="Assets/audio/file_example_MP3_700KB.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <p><em>(Note: Audio file not linked, placeholder player shown)</em></p>
+    </section>
+
+    <section>
+        <h2>3. Video</h2>
+        <p>Watch a sample video:</p>
+        <video width="320" height="240" controls>
+            <source src="Assets/video/file_example_MP4_480_1_5MG.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p><em>(Note: Video file not linked, placeholder player shown)</em></p>
+    </section>
+
+    <section>
+        <h2>4. YouTube Embed (Iframe)</h2>
+        <iframe 
+            width="560" height="315" src="https://www.youtube.com/embed/U5cK0gVOz_Q?si=-NdL2i-4hy4zMPQ0" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+    </section>
+</body>
+
+</html>
