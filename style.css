@@ -1,0 +1,46 @@
+/* Selector for the tags  */
+/* universal selector */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* tag selector */
+h1{
+  color: blue;
+  font-size: 24px;       
+}
+/* id selector */
+#main-header {
+  background-color: lightgray;
+  padding: 10px;
+  text-align: center;
+}
+/* class selector */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.btn{
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+/* grouping selector */
+.btn, .link {
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
+}
+/* nested selector  */
+nav ul li a {
+  color: darkblue;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: block;
+}

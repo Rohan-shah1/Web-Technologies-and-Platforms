@@ -1,0 +1,61 @@
+/* Element Selectors */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Class Selectors */
+.section-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+/* ID Selectors */
+#student-name {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Group Selectors */
+h2,
+h3 {
+    font-family: 'Arial', sans-serif;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Descendant Selectors */
+/* Style list items inside the course list */
+.course-list li {
+    list-style-type: square;
+    color: #2980b9;
+    margin-left: 20px;
+}
+
+/* Style list items inside the hobbies list */
+.hobbies-list li {
+    list-style-type: disc;
+    color: #27ae60;
+    margin-left: 20px;
+}
+
+/* Footer styling (optional per specs but good for layout) */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #eee;
+    margin-top: 20px;
+}
