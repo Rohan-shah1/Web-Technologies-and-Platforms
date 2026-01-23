@@ -1,0 +1,377 @@
+/* 
+   Assignment 4: Advanced Responsive Management System 
+   Techniques: Flexbox, CSS Grid, Variables, Animations, Media Queries
+*/
+
+:root {
+    /* Color Palette */
+    --primary-color: #4a90e2;
+    /* Vibrant Blue */
+    --secondary-color: #2c3e50;
+    /* Dark Navy */
+    --accent-color: #e74c3c;
+    /* Red for alerts/buttons */
+    --bg-color: #f4f7f6;
+    /* Light Grey/Blue BG */
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --sidebar-width: 250px;
+
+    /* Spacing */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+
+    /* Shadows */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Global Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------------
+   Layout Primitives
+-------------------------------------------------- */
+
+/* Navigation Bar (Flexbox) */
+.main-nav {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    /* Requirement 8.2 */
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Dashboard Layout (CSS Grid) */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    /* Sidebar + Content */
+    min-height: calc(100vh - 70px);
+    /* Adjust based on header height */
+}
+
+/* Sidebar (Sticky/Fixed) */
+.sidebar {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-right: 1px solid #ddd;
+    position: sticky;
+    /* Requirement 8.2 */
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: var(--spacing-md);
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    display: block;
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    transition: background 0.3s, padding-left 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    padding-left: 12px;
+    /* Micro-interaction */
+}
+
+/* Main Content Area */
+.main-content {
+    padding: var(--spacing-lg);
+    animation: fadeIn 0.8s ease-out;
+    /* Requirement 8.4 */
+}
+
+/* --------------------------------------------------
+   Components
+-------------------------------------------------- */
+
+/* Hero Section (Landing Page) */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('../images/image_beach.png');
+    /* Fallback image */
+    background-size: cover;
+    color: white;
+    padding: 0 var(--spacing-lg);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    animation: slideUp 1s ease-out;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #357abd;
+    transform: translateY(-3px);
+    /* Requirement 8.4 */
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+/* Login Form Center */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    /* Fills remaining space */
+    background: linear-gradient(135deg, var(--bg-color) 0%, #dde4e7 100%);
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--hover-shadow);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+    /* Focus effect */
+    outline: none;
+}
+
+/* Dashboard Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Responsive Grid */
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stat-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: transform 0.3s;
+    border-left: 4px solid var(--primary-color);
+    animation: fadeIn 0.5s ease-out backwards;
+    /* Stagger effect needs index delays, doing simple here */
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Data Table / List View */
+.table-container {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    overflow-x: auto;
+    /* Responsive table */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+    /* Hover effect */
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: #bdc3c7;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+/* --------------------------------------------------
+   Animations
+-------------------------------------------------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------
+   Media Queries (Responsiveness)
+-------------------------------------------------- */
+
+/* Tablet View (max-width: 1024px) */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 200px;
+    }
+}
+
+/* Mobile View (max-width: 768px) */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        /* Stack sidebar and content */
+    }
+
+    .sidebar {
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        top: 0;
+    }
+
+    .nav-links {
+        display: none;
+        /* Can implement hamburger menu if needed, but keeping simple for now */
+    }
+
+    /* Make table cards on mobile if requested, or just scroll */
+    .table-container {
+        padding: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}

@@ -197,6 +197,7 @@ table tbody tr:nth-child(even) {
 
 table tbody tr:hover {
     background-color: #e1f5fe;
+    
 }
 
 /* Intro BG image */
