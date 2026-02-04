@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Product & Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="light-mode">
+    <header>
+        <div class="header-container">
+            <h1 class="logo">BOT<span>AUDIO</span></h1>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="product-card" id="product-card">
+                <div class="product-badge">NEW ARRIVAL</div>
+                <div class="product-image-container">
+                    <img src="product.png" alt="Premium Wireless Headphones" id="product-img">
+                </div>
+                <div class="product-info">
+                    <h2 class="product-title">Sonic Pro Wireless</h2>
+                    <p class="product-description">Experience studio-quality sound with active noise cancellation and
+                        40-hour battery life. Crafted for comfort, designed for style.</p>
+                    <div class="product-price-row">
+                        <span class="price">RS.299999</span>
+                        <button id="add-to-cart-btn" class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+                <div id="cart-message" class="success-message-inline hidden">Added to cart successfully!</div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Join the Community</h2>
+                    <p>Register now for early access and exclusive offers.</p>
+                </div>
+                <form id="registration-form" novalidate>
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullname" placeholder="Your Name" required>
+                        </div>
+                        <small class="error-msg" id="fullname-error"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <small class="error-msg" id="email-error"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" placeholder="Min. 8 characters" required>
+                            <button type="button" class="password-toggle" data-target="password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <small class="error-msg" id="password-error"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-shield-halved"></i>
+                            <input type="password" id="confirm-password" placeholder="Repeat password" required>
+                            <button type="button" class="password-toggle" data-target="confirm-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <small class="error-msg" id="confirm-password-error"></small>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">Create Account</button>
+                </form>
+                <div id="form-success-msg" class="success-message popup hidden">Account created successfully! Welcome to
+                    BOTAUDIO.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BOTAUDIO. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
