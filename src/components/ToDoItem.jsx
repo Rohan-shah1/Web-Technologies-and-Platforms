@@ -1,30 +1,58 @@
+import { Trash2, Edit3, CheckCircle, Circle, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 function ToDoItem({ todo, toggleComplete, deleteTodo }) {
+    const navigate = useNavigate();
 
     return (
-        <li className={`group flex items-center justify-between p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 ${todo.completed ? 'opacity-50' : ''}`}>
-            <div className="flex items-center gap-3 flex-1 cursor-pointer" onClick={() => toggleComplete(todo.id)}>
-                <input
-                    type="checkbox"
-                    checked={todo.completed}
-                    readOnly
-                    className="w-5 h-5 rounded border-white/30 text-primary accent-primary cursor-pointer"
-                />
-                <span className={`text-lg transition-all ${todo.completed ? 'line-through text-white/50' : 'text-white'}`}>
-                    {todo.text}
-                </span>
+        <li className={`group flex flex-col p-5 rounded-2xl border transition-all duration-500 ${todo.completed
+                ? 'bg-white/[0.01] border-white/5 opacity-50'
+                : 'bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/[0.07]'
+            }`}>
+            <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-4 flex-1">
+                    <button
+                        onClick={() => toggleComplete(todo.id)}
+                        className={`mt-1 transition-all duration-300 transform active:scale-90 ${todo.completed ? 'text-green-500' : 'text-white/20 hover:text-white/40'
+                            }`}
+                    >
+                        {todo.completed ? <CheckCircle size={24} fill="currentColor" fillOpacity="0.1" /> : <Circle size={24} />}
+                    </button>
+
+                    <div className="flex flex-col pt-0.5">
+                        <span className={`text-lg font-semibold tracking-tight transition-all duration-500 ${todo.completed ? 'line-through text-white/20' : 'text-white'
+                            }`}>
+                            {todo.text}
+                        </span>
+                        {todo.description && (
+                            <p className={`text-sm mt-1.5 leading-relaxed transition-all duration-500 ${todo.completed ? 'text-white/10' : 'text-white/40'
+                                }`}>
+                                {todo.description}
+                            </p>
+                        )}
+                    </div>
+                </div>
+
+                <div className="flex gap-1">
+                    <button
+                        onClick={() => navigate(`/edit/${todo.id}`)}
+                        className="p-2.5 text-white/20 hover:text-white hover:bg-white/10 rounded-xl transition-all"
+                        aria-label="Edit todo"
+                    >
+                        <Edit3 size={18} />
+                    </button>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            deleteTodo(todo.id);
+                        }}
+                        className="p-2.5 text-white/10 hover:text-red-400 hover:bg-red-400/5 rounded-xl transition-all"
+                        aria-label="Delete todo"
+                    >
+                        <Trash2 size={18} />
+                    </button>
+                </div>
             </div>
-            <button
-                className="text-red-400 hover:text-red-300 opacity-0 group-hover:opacity-100 transition-all p-1 hover:bg-white/10 rounded"
-                onClick={(e) => {
-                    e.stopPropagation();
-                    deleteTodo(todo.id);
-                }}
-                aria-label="Delete todo"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-            </button>
         </li>
     );
 }

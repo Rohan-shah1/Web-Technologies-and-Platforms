@@ -3,14 +3,14 @@ import ToDoItem from './ToDoItem';
 function ToDoList({ todos, toggleComplete, deleteTodo }) {
     if (todos.length === 0) {
         return (
-            <div className="text-center text-white/60 mt-8 italic">
-                <p>No tasks yet. Add one above!</p>
+            <div className="text-center py-12 px-4 bg-white/5 rounded-xl border border-dashed border-white/20">
+                <p className="text-white/40 italic">No tasks found matching your criteria.</p>
             </div>
         );
     }
 
     return (
-        <ul className="flex flex-col gap-3 mt-6">
+        <ul className="grid gap-3">
             {todos.map((todo) => (
                 <ToDoItem
                     key={todo.id}

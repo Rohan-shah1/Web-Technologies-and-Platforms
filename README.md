@@ -1,16 +1,38 @@
-# React + Vite
+# Ultimate To-Do Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A scalable and maintainable To-Do application built with React, Tailwind CSS, and React Router.
 
-Currently, two official plugins are available:
+## Features
+- **Task Management**: Add, Edit, and Delete tasks with ease.
+- **Detailed Tasks**: Support for task titles and optional descriptions.
+- **Global State**: Managed using React Context API for scalability.
+- **Routing**: Seamless navigation between Home, Add, and Edit pages using React Router.
+- **Persistence**: Data is persisted in `localStorage`.
+- **Filtering & Search**: Quickly find tasks by status (All, Pending, Completed) or by searching titles/descriptions.
+- **Responsive Design**: Premium "glassmorphism" UI using Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## React Compiler
+### Prerequisites
+- Node.js installed on your machine.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Expanding the ESLint configuration
+### Running Locally
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Open your browser to the URL displayed in the terminal.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+- `/src/components`: Reusable UI components (Header, ToDoItem, ToDoList).
+- `/src/pages`: Main application pages (Home, AddTodo, EditTodo).
+- `/src/context`: Global state management using Context API.
+- `/src/utils`: Helper functions and LocalStorage logic.
+- `/src/App.jsx`: Main routing configuration.
